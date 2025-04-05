@@ -22,6 +22,10 @@ public class TarefasModel {
     private String status;
 
     //Uma tarefa pode ser dada a várias pessoas. - @ManyToOne
+    /**
+     * The Annotation used suggests that many tasks belong to one user.
+     * However, as per your comment, consider using a @OneToMany
+     */
     @ManyToOne
     @JoinColumn(name = "tarefas_id") //Foreing Key OU Chave estrangeira.
     private PessoaModel pessoa;

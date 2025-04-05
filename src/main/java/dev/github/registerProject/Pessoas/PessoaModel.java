@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 //Transform a class into an entity and Create a Table.
 //Issue #2 ok
 @Entity
@@ -25,7 +27,12 @@ public class PessoaModel {
     private int idade;
 
     //Uma pessoa tem uma única tarefa, - @ManyToOne.
+    /**
+     * One Person can have many tasks is the essence of the @OneToMany annotation.
+     *If You want a person to have a single task as per your comment, consider
+     * using a @OneToOne mapping.
+     */
     @OneToMany(mappedBy = "pessoa")
-    private TarefasModel tarefas;
+    private List<TarefasModel> tarefas;
 
 }
