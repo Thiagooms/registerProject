@@ -21,6 +21,9 @@ public class PessoaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    //Aqui estamos falando que essa coluna é única, ou seja, cada usuario deve ter um
+    //email único
+    @Column(unique = true)
     private String email;
     private int idade;
 
