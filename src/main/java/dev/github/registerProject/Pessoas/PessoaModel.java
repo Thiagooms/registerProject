@@ -1,6 +1,8 @@
-package dev.github.registerProject;
+package dev.github.registerProject.Pessoas;
 
+import dev.github.registerProject.Tarefas.TarefasModel;
 import jakarta.persistence.*;
+import java.util.List;
 
 //Transform a class into an entity and Create a Table.
 //Issue #2 ok
@@ -14,6 +16,10 @@ public class PessoaModel {
     private String nome;
     private String email;
     private int idade;
+
+    //Uma pessoa tem uma única tarefa, - @ManyToOne.
+    @OneToMany(mappedBy = "pessoa")
+    private TarefasModel tarefas;
 
     public PessoaModel()  {
 

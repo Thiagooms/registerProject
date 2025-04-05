@@ -1,4 +1,4 @@
-package dev.github.registerProject;
+package dev.github.registerProject.Pessoas;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
