@@ -3,8 +3,9 @@ package dev.github.registerProject.Pessoas;
 import dev.github.registerProject.Tarefas.TarefasModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -14,7 +15,8 @@ import java.util.List;
 @Table(name = "tb_cadastro")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 public class PessoaModel {
 
     @Id
@@ -28,7 +30,12 @@ public class PessoaModel {
     private int idade;
 
     //Uma pessoa tem uma única tarefa, - @ManyToOne.
+    /**
+     * One Person can have many tasks is the essence of the @OneToMany annotation.
+     *If You want a person to have a single task as per your comment, consider
+     * using a @OneToOne mapping.
+     */
     @OneToMany(mappedBy = "pessoa")
-    private TarefasModel tarefas;
+    private List<TarefasModel> tarefas;
 
 }
