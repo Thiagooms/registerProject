@@ -2,9 +2,7 @@ package dev.github.registerProject.Pessoas;
 
 import dev.github.registerProject.Tarefas.TarefasModel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -14,7 +12,8 @@ import java.util.List;
 @Table(name = "tb_cadastro")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 public class PessoaModel {
 
     @Id
