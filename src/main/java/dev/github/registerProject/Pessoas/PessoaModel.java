@@ -2,9 +2,10 @@ package dev.github.registerProject.Pessoas;
 
 import dev.github.registerProject.Tarefas.TarefasModel;
 import jakarta.persistence.*;
-import lombok.*;
-
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 //Transform a class into an entity and Create a Table.
 //Issue #2 ok
