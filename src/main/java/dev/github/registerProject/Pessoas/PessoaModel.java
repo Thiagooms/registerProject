@@ -19,12 +19,22 @@ public class PessoaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column (name = "nome")
     private Long id;
+
+    @Column(name = "nome")
     private String nome;
+
     //Aqui estamos falando que essa coluna é única, ou seja, cada usuario deve ter um
     //email único
     @Column(unique = true)
     private String email;
+
+    @Column(name = "img_url")
+    private String imgUrl;
+
+    @Column(name = "idade")
     private int idade;
 
     //Uma pessoa tem uma única tarefa, - @ManyToOne.
