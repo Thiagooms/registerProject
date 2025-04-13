@@ -19,11 +19,10 @@ public class PessoaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    @Column (name = "nome")
+    @Column (name = "id")
     private Long id;
 
-    @Column(name = "nome")
+    @Column (name = "nome")
     private String nome;
 
     //Aqui estamos falando que essa coluna é única, ou seja, cada usuario deve ter um
@@ -37,8 +36,9 @@ public class PessoaModel {
     @Column(name = "idade")
     private int idade;
 
-    //Uma pessoa tem uma única tarefa, - @ManyToOne.
-    @OneToMany(mappedBy = "pessoa")
+    //ManyToOne - Uma pessoa tem uma única tarefa.
+    @ManyToOne
+    @JoinColumn(name = "tarefas_id") //Foreing Key ou Chave Estrangeira
     private TarefasModel tarefas;
 
 }

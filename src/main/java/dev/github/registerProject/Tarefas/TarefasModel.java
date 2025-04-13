@@ -22,6 +22,6 @@ public class TarefasModel {
     //Uma tarefa pode ser dada a várias pessoas. - @ManyToOne
     @ManyToOne
     @JoinColumn(name = "tarefas_id") //Foreing Key OU Chave estrangeira.
-    private PessoaModel pessoa;
+    private TarefasModel tarefas;
 
 }
