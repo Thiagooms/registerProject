@@ -3,7 +3,7 @@ package dev.github.registerProject.Pessoas;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/ninjas")
 public class PessoaController {
 
     @GetMapping("/boasvindas")
@@ -20,14 +20,14 @@ public class PessoaController {
 
     //Mostrar Todas as Pessoas por ID (CREATE)
 
-    @GetMapping("/todos")
+    @GetMapping("/listar")
     public String mostrarTodosCadastrados(){
         return "Pessoa Cadastrada";
     }
 
     //Mostrar Pessoas por ID  (READ)
 
-    @GetMapping("/todosID")
+    @GetMapping("/listarID")
     public String mostrarTodosCadastradosPorId(){
         return "Pessoa Cadastrada por ID";
     }
