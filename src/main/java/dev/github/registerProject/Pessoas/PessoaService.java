@@ -1,9 +1,9 @@
 package dev.github.registerProject.Pessoas;
 
-
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PessoaService {
@@ -20,6 +20,12 @@ public class PessoaService {
         return pessoaRepository.findAll();
         //Para mostrar todos os elementos utilizamos o findall, o save é equivalente ao insert, porque vamos salvar no
         //banco de dados, vamos salvar, findByID, para procurarmos elementos por ID.
+    }
+
+    // Listar Pessoas por ID
+    public PessoaModel listarPessoasPorID(Long id) {
+        Optional<PessoaModel> pessoaPorId = pessoaRepository.findById(id);
+        return pessoaPorId.orElse(null);
     }
 
 

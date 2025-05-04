@@ -35,9 +35,10 @@ public class PessoaController {
 
     //Mostrar Pessoas por ID (READ)
 
-    @GetMapping("/listarID")
-    public String mostrarTodosCadastradosPorId(){
-        return "Pessoa Cadastrada por ID";
+    //localhost:8080/pessoas/listar/1 <- id
+    @GetMapping("/listar/{id}")
+    public PessoaModel listarPessoasPorId(@PathVariable Long id) {
+        return pessoaService.listarPessoasPorID(id);
     }
 
     //Alterar Dados de uma Pessoa (UPDATE)
