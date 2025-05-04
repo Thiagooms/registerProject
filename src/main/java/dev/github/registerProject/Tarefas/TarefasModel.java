@@ -1,10 +1,13 @@
 package dev.github.registerProject.Tarefas;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.github.registerProject.Pessoas.PessoaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_tarefas")
@@ -19,9 +22,8 @@ public class TarefasModel {
     private String nomeTarefa;
     private String status;
 
-    //Uma tarefa pode ser dada a várias pessoas. - @ManyToOne
     @ManyToOne
-    @JoinColumn(name = "tarefas_id") //Foreing Key OU Chave estrangeira.
-    private TarefasModel tarefas;
-
+    @JoinColumn(name = "pessoa_id") //Nossa Foreign Key da tabela tarefas
+    @JsonIgnore
+    private PessoaModel pessoa;
 }

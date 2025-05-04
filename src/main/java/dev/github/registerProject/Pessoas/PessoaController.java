@@ -2,9 +2,17 @@ package dev.github.registerProject.Pessoas;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/ninjas")
+@RequestMapping("/pessoas")
 public class PessoaController {
+
+    private PessoaService pessoaService;
+
+    public PessoaController(PessoaService pessoaService) {
+        this.pessoaService = pessoaService;
+    }
 
     @GetMapping("/boasvindas")
     public String boasVindas() {
@@ -21,11 +29,11 @@ public class PessoaController {
     //Mostrar Todas as Pessoas por ID (CREATE)
 
     @GetMapping("/listar")
-    public String mostrarTodosCadastrados(){
-        return "Pessoa Cadastrada";
+    public List<PessoaModel> listarPessoas(){
+        return pessoaService.listarPessoas();
     }
 
-    //Mostrar Pessoas por ID  (READ)
+    //Mostrar Pessoas por ID (READ)
 
     @GetMapping("/listarID")
     public String mostrarTodosCadastradosPorId(){

@@ -26,7 +26,7 @@ public class PessoaModel {
     private String nome;
 
     //Aqui estamos falando que essa coluna é única, ou seja, cada usuario deve ter um
-    //email único
+    //e-mail único
     @Column(unique = true)
     private String email;
 
@@ -36,9 +36,7 @@ public class PessoaModel {
     @Column(name = "idade")
     private int idade;
 
-    //ManyToOne - Uma pessoa tem uma única tarefa.
-    @ManyToOne
-    @JoinColumn(name = "tarefas_id") //Foreing Key ou Chave Estrangeira
-    private TarefasModel tarefas;
-
+    @OneToMany(mappedBy = "pessoa")
+    private List<TarefasModel> tarefas;
+       
 }
