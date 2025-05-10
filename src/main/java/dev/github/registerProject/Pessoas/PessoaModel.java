@@ -1,5 +1,6 @@
 package dev.github.registerProject.Pessoas;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.github.registerProject.Tarefas.TarefasModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -36,7 +37,8 @@ public class PessoaModel {
     @Column(name = "idade")
     private int idade;
 
-    @OneToMany(mappedBy = "pessoa")
+    @OneToMany(mappedBy = "pessoa", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<TarefasModel> tarefas;
        
 }

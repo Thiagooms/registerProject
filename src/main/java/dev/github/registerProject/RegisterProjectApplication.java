@@ -8,6 +8,8 @@ public class RegisterProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RegisterProjectApplication.class, args);
+		System.out.println("Aplicação inicializada!");
 	}
+
 
 }

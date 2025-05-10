@@ -1,5 +1,6 @@
 package dev.github.registerProject.Pessoas;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +11,7 @@ public class PessoaController {
 
     private PessoaService pessoaService;
 
+    @Autowired
     public PessoaController(PessoaService pessoaService) {
         this.pessoaService = pessoaService;
     }
@@ -21,9 +23,9 @@ public class PessoaController {
 
     //Adicionar Pessoa (CREATE)
 
-    @PostMapping("/criar")
-    public String criarPessoa() {
-        return "Pessoa Cadastrada no Sistema!";
+    @PostMapping("/cadastrar")
+    public PessoaModel cadastrarPessoa(@RequestBody PessoaModel pessoaModel){
+        return pessoaService.cadastrarPessoa(pessoaModel);
     }
 
     //Mostrar Todas as Pessoas por ID (CREATE)
@@ -49,9 +51,9 @@ public class PessoaController {
     }
 
     //Deletar Pessoa (DELETE)
-    @DeleteMapping("/deletarID")
-    public String deletarPessoaPorId(){
-        return "Pessoa Deletada por ID";
+    @DeleteMapping("/deletar/{id}")
+        public void deletarPessoaPorId(@PathVariable Long id){
+        pessoaService.deletarPessoaPorId(id);
     }
 
 

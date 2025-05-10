@@ -28,5 +28,15 @@ public class PessoaService {
         return pessoaPorId.orElse(null);
     }
 
+    //Cadastrar Pessoas
+    public PessoaModel cadastrarPessoa(PessoaModel pessoa) {
+        return pessoaRepository.save(pessoa);
+    }
+
+    //Deletar Pessoa - Tem que ser void
+    public void deletarPessoaPorId(Long id) {
+        pessoaRepository.deleteById(id);
+    }
+
 
 }
