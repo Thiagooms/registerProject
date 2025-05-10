@@ -38,5 +38,11 @@ public class PessoaService {
         pessoaRepository.deleteById(id);
     }
 
-
+    public PessoaModel atualizarPessoa(Long id, PessoaModel pessoaAtualizada) {
+        if (pessoaRepository.existsById(id)) {
+            pessoaAtualizada.setId(id);
+            return pessoaRepository.save(pessoaAtualizada);
+        }
+        return null;
+    }
 }
